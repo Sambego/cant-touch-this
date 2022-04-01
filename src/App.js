@@ -603,6 +603,27 @@ function App() {
         <Highlight color="#C594C5">ReBAC</Highlight> is a more <Highlight color="#C594C5">granular aproach to authorization</Highlight>.
         </Text>
       </Slide>
+
+      <Slide>
+        <Subtitle>
+        Let's <Highlight color="#C594C5">recap</Highlight>.
+        </Subtitle>
+      </Slide>
+      <Slide>
+        <Text>
+        <Highlight color="#C594C5">RBAC</Highlight> uses <Highlight color="#C594C5">permissions</Highlight> and <Highlight color="#C594C5">roles</Highlight> to grant privileges.
+        </Text>
+      </Slide>
+      <Slide>
+        <Text>
+        <Highlight color="#C594C5">ABAC</Highlight> checks <Highlight color="#C594C5">a combination of different attributes</Highlight> to grant privileges.
+        </Text>
+      </Slide>
+      <Slide>
+        <Text>
+        <Highlight color="#C594C5">ReBAC</Highlight> looks at <Highlight color="#C594C5">relationships</Highlight> between <Highlight color="#C594C5">users</Highlight> and <Highlight color="#C594C5">objects</Highlight> to grant privileges.
+        </Text>
+      </Slide>
       
       <Slide>
         <Subtitle>
