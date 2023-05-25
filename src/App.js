@@ -10,7 +10,7 @@ import {
   Highlight,
   Video,
   Footer,
-  Quote
+  Code
 } from "@sambego/diorama";
 
 import Cant from "./video/cant.mp4";
@@ -37,6 +37,11 @@ import { Annotation } from "./Annotation";
 const white = "#fff";
 const primaryColor = "#C594C5";
 const primaryColorLight = "#e2c9e2";
+
+const idTokenRBAC = `{\n  "iss": "http://sambego.auth0.com", \n  "sub": "12345678", \n  "aud": "my-api", \n  "exp": 1311281970, \n  "iat": 1311280970, \n  "name": "Jane Doe", \n  "given_name": "Jane", \n  "family_name": "Doe",\n  "permissions": [\n    "read:documentation",\n    "write:documentation",\n    "delete:documentation"\n  ]\n}`;
+const idTokenRBAC2 = `{\n  ... \n  ... \n  ... \n  ... \n  ... \n  ... \n  ... \n  ...\n  "permissions": [\n    "read:documentation",\n    "write:documentation",\n    "delete:documentation"\n  ]\n}`;
+const idTokenRBAC3 = `{\n  ...\n  "permissions": [\n    "read:documentation:document1",\n    "write:documentation:document1",\n    "delete:documentation:document1",\n    "read:documentation:document2",\n    "write:documentation:document2",\n    "delete:documentation:document2",\n    ...\n  ]\n}`;
+const idTokenRBAC4 = `{\n  "permissions": [\n    "read:documentation:document1",\n    "read:documentation:document2",\n    "read:documentation:document3",\n    "read:documentation:document4",\n    "read:documentation:document5",\n    "read:documentation:document6",\n    "read:documentation:document7",\n    "read:documentation:document8",\n    "read:documentation:document9",\n    "read:documentation:document10",\n    "read:documentation:document11",\n    "read:documentation:document12",\n    "read:documentation:document13",\n    "read:documentation:document14",\n    "read:documentation:document15",\n    "read:documentation:document16",\n     ...\n  ]\n}`;
 
 function App() {
   return (
@@ -85,7 +90,7 @@ function App() {
           <div>
             <Subtitle>Sam Bellen</Subtitle>
             <List>
-              <li>Developer Advocate Engineer</li>
+              <li>Principal Developer Advocate</li>
               <li>Auth0</li>
               <li>GDE</li>
               <li>@sambego</li>
@@ -210,6 +215,40 @@ function App() {
       <Slide>
         <Text>
           An <Highlight color={primaryColor}><Annotation note="role">admin</Annotation></Highlight> is able to <Highlight color={primaryColor}><Annotation note="permission">read</Annotation></Highlight>, <Highlight color={primaryColor}><Annotation note="permission" bottom>edit</Annotation></Highlight> and <Highlight color={primaryColor}><Annotation note="permission">delete</Annotation></Highlight> all documentation.
+        </Text>
+      </Slide>
+      <Slide>
+        <Subtitle>
+          Roles or permissions are <Highlight color={primaryColor}>often added to access</Highlight> and <Highlight color={primaryColor}>ID tokens</Highlight>.
+        </Subtitle>
+      </Slide>
+      <Slide>
+        <Code code={idTokenRBAC} lang="js"/>
+      </Slide>
+      <Slide>
+        <Code code={idTokenRBAC2} lang="js"/>
+      </Slide>
+      <Slide>
+        <Code code={idTokenRBAC3} lang="js"/>
+      </Slide>
+      <Slide>
+        <Code code={idTokenRBAC4} lang="js"/>
+      </Slide>
+      <Slide>
+        <Subtitle>Token Bloat</Subtitle>
+      </Slide>
+      <Slide>
+        <Subtitle style={{fontSize:"12rem"}}>Token Bloat</Subtitle>
+      </Slide>
+      <Slide>
+        <Subtitle style={{fontSize:"20rem"}}>Token Bloat</Subtitle>
+      </Slide>
+      <Slide>
+        <Subtitle style={{fontSize:"40rem"}}>Token Bloat</Subtitle>
+      </Slide>
+      <Slide>
+        <Text>
+          RBAC is <Highlight color={primaryColor}>not scalable</Highlight> for <Highlight color={primaryColor}>Fine-Grained permissions</Highlight>.
         </Text>
       </Slide>
 
@@ -370,6 +409,16 @@ function App() {
       <Slide>
         <Text>
         You have to build out <Highlight color={primaryColor}>all policies</Highlight> to cover <Highlight color={primaryColor}>all cases</Highlight>.
+        </Text>
+      </Slide>
+      <Slide>
+        <Text>
+         <Highlight color={primaryColor}>OPA, the Open Policy Agent</Highlight> is a popular example.
+        </Text>
+      </Slide>
+      <Slide>
+        <Text>
+         Scenarios with relatively <Highlight color={primaryColor}>little data influencing decisions</Highlight>.
         </Text>
       </Slide>
     
@@ -607,25 +656,17 @@ function App() {
           <Highlight color={primaryColor}>No!</Highlight>
         </Text>
       </Slide> */}
+
+      <Slide>
+        <Text>A centralised place for<Highlight color={primaryColor}>decision logic</Highlight></Text>
+      </Slide>
      
       <Slide>
         <Subtitle>
           3, 2, 1 <Highlight color={primaryColor}>Action</Highlight>!
         </Subtitle>
       </Slide>
-      <Slide>
-        <Subtitle>
-          <a
-            style={{ color: "#000", borderBottom: `.9vw solid ${primaryColor}` }}
-            href="https://play.fga.dev"
-            target="_BLANK"
-            rel="noreferrer"
-          >
-            play.fga.dev
-          </a>
-        </Subtitle>
-      </Slide>
-
+      
       <Slide>
         <Text>
           So what's the <Highlight color={primaryColor}>difference between RBAC and ReBAC</Highlight>?
